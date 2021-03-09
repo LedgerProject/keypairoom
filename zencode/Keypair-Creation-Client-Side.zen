@@ -13,6 +13,15 @@ Given I have a 'string dictionary' named 'userChallenges'
 # Loading the pbkdf received from the server, containing a signed hash of known data
 Given that I have a 'string' named 'key_derivation'  
 
+# Loading the individual challenges, in order to have them hashed 
+# and the hashes OPTIONALLY stored by the server, to improve regeneration of the keypair
+Given I have a 'string' named 'whereMyParentsMet' in 'userChallenges'
+Given I have a 'string' named 'myFirstPet' in 'userChallenges'
+Given I have a 'string' named 'myHomeTown' in 'userChallenges'
+Given I have a 'string' named 'nameOfFirstTeacher' in 'userChallenges'
+Given I have a 'string' named 'surnameOfMotherBeforeWedding' in 'userChallenges'
+
+
 # Hashing the user's challenges and renaming it
 When I create the hash of 'userChallenges'
 and I rename the 'hash' to 'userChallenges.hash'
@@ -25,4 +34,37 @@ and I rename the 'hash' to 'concatenatedHashes'
 # Creating the keypair from the hash just created
 When I create the keypair with secret key 'concatenatedHashes'
 
+When I create the 'base64 dictionary'
+and I rename the 'base64 dictionary' to 'hashedAnswers'
+
+
+# Creating the hashes of the single challenges, to OPTIONALLY help 
+# regeneration of the keypair
+
+When I create the hash of 'whereMyParentsMet'
+and I rename the 'hash' to 'whereMyParentsMet.hash'
+When I insert 'whereMyParentsMet.hash' in 'hashedAnswers'
+
+When I create the hash of 'myFirstPet'
+and I rename the 'hash' to 'myFirstPet.hash'
+When I insert 'myFirstPet.hash' in 'hashedAnswers'
+
+When I create the hash of 'myHomeTown'
+and I rename the 'hash' to 'myHomeTown.hash'
+When I insert 'myHomeTown.hash' in 'hashedAnswers'
+
+When I create the hash of 'nameOfFirstTeacher'
+and I rename the 'hash' to 'nameOfFirstTeacher.hash'
+When I insert 'nameOfFirstTeacher.hash' in 'hashedAnswers'
+
+When I create the hash of 'surnameOfMotherBeforeWedding'
+and I rename the 'hash' to 'surnameOfMotherBeforeWedding.hash'
+When I insert 'surnameOfMotherBeforeWedding.hash' in 'hashedAnswers'
+
+
+
 Then print my 'keypair'
+
+# Comment the line below, if you don't want to output the hashes of the challenges
+Then print 'hashedAnswers'
+

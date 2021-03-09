@@ -1,1 +1,11 @@
-{"userChallenges":{"whereMyParentsMet":"Paris","myFirstPet":"ScoobyDoo","myHomeTown":"Amsterdam"},"username":"JohnDoe","key_derivation":"qf3skXnPGFMrE28UJS7S8BdT8g=="}
+{
+	"userChallenges": {
+		"whereMyParentsMet": "Paris",
+		"myFirstPet": "ScoobyDoo",
+		"myHomeTown": "Amsterdam",
+		"nameOfFirstTeacher": "null",
+		"surnameOfMotherBeforeWedding": "null"
+	},
+	"username": "JohnDoe",
+	"key_derivation": "qf3skXnPGFMrE28UJS7S8BdT8g=="
+}
