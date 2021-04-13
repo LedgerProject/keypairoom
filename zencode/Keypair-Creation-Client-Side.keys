@@ -1,11 +1,11 @@
 {
 	"userChallenges": {
-		"whereMyParentsMet": "Paris",
-		"myFirstPet": "ScoobyDoo",
-		"myHomeTown": "Amsterdam",
-		"nameOfFirstTeacher": "null",
-		"surnameOfMotherBeforeWedding": "null"
+		"question1": "Paris",
+		"question2": "ScoobyDoo",
+		"question3": "Amsterdam",
+		"question4": "null",
+		"question5": "null"
 	},
-	"username": "JohnDoe",
+	"user": "JohnDoe",
 	"key_derivation": "qf3skXnPGFMrE28UJS7S8BdT8g=="
 }
