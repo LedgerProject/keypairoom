@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+ "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
@@ -7,6 +7,6 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/**/*.json", "zencode/*.zen"],
+  "include": ["src", "src/**/*.json"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
