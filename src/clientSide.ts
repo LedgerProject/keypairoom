@@ -76,5 +76,5 @@ export async function verifyAnswers(
 ) {
   const execution = await recoveryKeypair(answers, PBKDF, username);
 
-  return userPublicKey === execution.user.keypair.public_key;
+  return userPublicKey === execution[username].keypair.public_key;
 }
