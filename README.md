@@ -51,5 +51,15 @@ See here what the scripts will return:
  
  - The deployment is done [via restroom-mw](https://dyne.github.io/restroom-mw/#/) and can be installed using the script [deployAPI.sh](deployAPI.sh) or the [Dockerfile](Dockerfile), info about Dockerfile deployment [here](https://dev.zenroom.org/#/pages/apiroom?id=build-and-run-the-docker-image). 
   
+# Keypair lib
+
+To configure backend environment variables please put an .env file at the top of your project like this: 
+
+```json
+#BACKEND CREDENTIALS
+BACKEND_PRIVATE_KEY=Aku7vkJ7K01gQehKELav3qaQfTeTMZKgK+5VhaR3Ui0=
+BACKEND_PUBLIC_KEY=BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI=
+BACKEND_PASSWORD=myVerySecretPassword
+``` 
  
  
