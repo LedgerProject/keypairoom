@@ -7,6 +7,6 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/**/*.json"],
+  "include": ["src", "props/**/*.json"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
