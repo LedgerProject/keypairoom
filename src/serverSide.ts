@@ -1,7 +1,7 @@
-import { zencode_exec } from 'zenroom';
-import { readStringFromFile } from './service/fileService';
-import * as dotenv from 'dotenv';
-const serverSideContract = 'zencode/Keypair-Creation-Server-Side.zen';
+import { zencode_exec } from "zenroom";
+import { readStringFromFile } from "./service/fileService";
+import * as dotenv from "dotenv";
+const serverSideContract = "zencode/Keypair-Creation-Server-Side.zen";
 
 export async function createPBKDF(userData: any) {
   dotenv.config();
