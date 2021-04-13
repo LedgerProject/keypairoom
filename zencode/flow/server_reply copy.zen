@@ -1,0 +1,40 @@
+rule check version 1.0.0
+Scenario 'ecdh': create the signature of an object
+
+Given I am 'theBackend' 
+Given I have my 'keypair'
+
+# This is the password that will be used for PBKDF
+Given I have a 'string' named 'theBackendPassword'
+
+# Loading the data that the user is entering at the signup. This data will be sent from the client to the server
+Given I have a 'base64 dictionary' named 'userData'
+Given I have a 'base64 dictionary' named 'hashedAnswers'
+Given I have a 'base64' named 'Question1.stored' inside 'userData'
+Given I have a 'base64' named 'Question1.hash' inside 'hashedAnswers' 
+Given I have a 'base64' named 'Question2.stored' inside 'userData'
+Given I have a 'base64' named 'Question2.hash' inside 'hashedAnswers' 
+Given I have a 'base64' named 'Question3.stored' inside 'userData'
+Given I have a 'base64' named 'Question3.hash' inside 'hashedAnswers' 
+
+Given I have a 'base64' named 'Answer1.stored' inside 'userData'
+Given I have a 'base64' named 'Answer1.hash' inside 'hashedAnswers' 
+Given I have a 'base64' named 'Answer2.stored' inside 'userData'
+Given I have a 'base64' named 'Answer2.hash' inside 'hashedAnswers' 
+Given I have a 'base64' named 'Answer3.stored' inside 'userData'
+Given I have a 'base64' named 'Answer3.hash' inside 'hashedAnswers' 
+
+When I verify 'Question1.stored' is equal to 'Question1.hash'
+When I verify 'Question2.stored' is equal to 'Question2.hash'
+When I verify 'Question3.stored' is equal to 'Question3.hash'
+When I verify 'Answer1.stored' is equal to 'Answer1.hash'
+When I verify 'Answer2.stored' is equal to 'Answer2.hash'
+When I verify 'Answer3.stored' is equal to 'Answer3.hash'
+
+# The output will be sent back to the user, as it will be part of the random seed to create the keypair
+#
+When I create the key derivation of 'hashedAnswers' with password 'theBackendPassword'
+
+# Here we print the PBKDF
+Then print the 'key derivation'
+
