@@ -1,19 +1,19 @@
 import { getSafetyQuestions } from '../clientSide';
 test('getSafetyQuestions : pick default language', () => {
   expect(getSafetyQuestions('ccd')).toStrictEqual({
-    question1: 'Question one?',
-    question2: 'Question two?',
-    question3: 'Question three?',
-    question4: 'Question four?',
-    question5: 'Question five?',
+    question1:"Where my parents met?",
+    question2:"What is the name of your first pet?",
+    question3:"What is your home town?",
+    question4:"What is the name of your first teacher?",
+    question5:"What is the surname of your mother before wedding?"
   });
 });
 test('getSafetyQuestions : pick italian language', () => {
   expect(getSafetyQuestions('it_IT')).toStrictEqual({
-    question1: 'Domanda uno?',
-    question2: 'Domanda due?',
-    question3: 'Domanda tre?',
-    question4: 'Domanda quattro?',
-    question5: 'Domanda cinque?',
+    question1:"Dove si sono incontrati i tuoi genitori?",
+    question2:"Quale è il nome del tuo primo animale domestico?",
+    question3:"Quale è la tua citta' natale??",
+    question4:"Quale è il nome del tuo primo insegnante?",
+    question5:"Quale è il cognome di tua madre prima dle matrimonio?"
   });
 });
