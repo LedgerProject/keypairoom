@@ -1,5 +1,5 @@
-Scenario 'ecdh': create the signature of an object 
-Given I am 'theBackend' 
+Scenario 'ecdh': create the signature of an object
+Given I am 'theBackend'
 Given I have my 'keypair'
 
 # This is the password that will be used for PBKDF
@@ -13,7 +13,3 @@ When I create the key derivation of 'userData' with password 'theBackendPassword
 
 # Here we print the PBKDF
 Then print the 'key derivation'
-
-# The output will be sent back to the user, as it will be part of the random seed to create the keypair
-#
-

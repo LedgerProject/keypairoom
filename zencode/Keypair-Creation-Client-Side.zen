@@ -15,11 +15,11 @@ Given that I have a 'string' named 'key_derivation'
 
 # Loading the individual challenges, in order to have them hashed 
 # and the hashes OPTIONALLY stored by the server, to improve regeneration of the keypair
-Given I have a 'string' named 'whereMyParentsMet' in 'userChallenges'
-Given I have a 'string' named 'myFirstPet' in 'userChallenges'
-Given I have a 'string' named 'myHomeTown' in 'userChallenges'
-Given I have a 'string' named 'nameOfFirstTeacher' in 'userChallenges'
-Given I have a 'string' named 'surnameOfMotherBeforeWedding' in 'userChallenges'
+Given I have a 'string' named 'question1' in 'userChallenges'
+Given I have a 'string' named 'question2' in 'userChallenges'
+Given I have a 'string' named 'question3' in 'userChallenges'
+Given I have a 'string' named 'question4' in 'userChallenges'
+Given I have a 'string' named 'question5' in 'userChallenges'
 
 
 # Hashing the user's challenges and renaming it
@@ -41,25 +41,25 @@ and I rename the 'base64 dictionary' to 'hashedAnswers'
 # Creating the hashes of the single challenges, to OPTIONALLY help 
 # regeneration of the keypair
 
-When I create the hash of 'whereMyParentsMet'
-and I rename the 'hash' to 'whereMyParentsMet.hash'
-When I insert 'whereMyParentsMet.hash' in 'hashedAnswers'
+When I create the hash of 'question1'
+and I rename the 'hash' to 'question1.hash'
+When I insert 'question1.hash' in 'hashedAnswers'
 
-When I create the hash of 'myFirstPet'
-and I rename the 'hash' to 'myFirstPet.hash'
-When I insert 'myFirstPet.hash' in 'hashedAnswers'
+When I create the hash of 'question2'
+and I rename the 'hash' to 'question2.hash'
+When I insert 'question2.hash' in 'hashedAnswers'
 
-When I create the hash of 'myHomeTown'
-and I rename the 'hash' to 'myHomeTown.hash'
-When I insert 'myHomeTown.hash' in 'hashedAnswers'
+When I create the hash of 'question3'
+and I rename the 'hash' to 'question3.hash'
+When I insert 'question3.hash' in 'hashedAnswers'
 
-When I create the hash of 'nameOfFirstTeacher'
-and I rename the 'hash' to 'nameOfFirstTeacher.hash'
-When I insert 'nameOfFirstTeacher.hash' in 'hashedAnswers'
+When I create the hash of 'question4'
+and I rename the 'hash' to 'question4.hash'
+When I insert 'question4.hash' in 'hashedAnswers'
 
-When I create the hash of 'surnameOfMotherBeforeWedding'
-and I rename the 'hash' to 'surnameOfMotherBeforeWedding.hash'
-When I insert 'surnameOfMotherBeforeWedding.hash' in 'hashedAnswers'
+When I create the hash of 'question5'
+and I rename the 'hash' to 'question5.hash'
+When I insert 'question5.hash' in 'hashedAnswers'
 
 
 
@@ -67,4 +67,3 @@ Then print my 'keypair'
 
 # Comment the line below, if you don't want to output the hashes of the challenges
 Then print 'hashedAnswers'
-
