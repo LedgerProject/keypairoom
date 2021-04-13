@@ -5,14 +5,16 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "build": "npm run clean && tsc && npm run copy-files",
+    "clean": "rm -rf ./lib",
+    "copy-files": "cp -r ./src/zencode/ ./lib/zencode"
   },
   "repository": {
     "type": "git",

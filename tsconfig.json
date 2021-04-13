@@ -7,6 +7,6 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/**/*.json"],
+  "include": ["src", "src/**/*.json", "zencode/*.zen"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
