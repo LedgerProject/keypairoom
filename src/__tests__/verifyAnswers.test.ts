@@ -1,5 +1,4 @@
 import { verifyAnswers } from '../clientSide';
-import { UserChallenges } from '../model/userChallenges';
 test('verifyAnswers : verify correct answers', async () => {
   const answers = {
     question1: 'Paris',
