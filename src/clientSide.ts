@@ -7,7 +7,8 @@ import {
 } from "./service/fileService";
 import * as dotenv from "dotenv";
 
-const DEFAULT_CLIENT_SIDE_CONTRACT = "zencode/Keypair-Creation-Client-Side.zen";
+const DEFAULT_CLIENT_SIDE_CONTRACT =
+  "./node_modules/keypair-lib/lib/zencode/Keypair-Creation-Client-Side.zen";
 const REGULAR_EXPRESSION: RegExp = /\W/gi;
 const EMPTY_STRING: string = "";
 const DEFAULT_USER: string = "user";
@@ -21,7 +22,8 @@ export const getSafetyQuestions = (userLocale: string) => {
     process.env.QUESTION_FILE_PREPEND! +
     locale +
     ".json";
-  const defaultPropertiesFileName = "props/questions-en_GB.json";
+  const defaultPropertiesFileName =
+    "./node_modules/keypair-lib/lib/props/questions-en_GB.json";
   let questions: any;
   if (fileExists(propertiesFileName)) {
     questions = readJSONFromFile(propertiesFileName);
@@ -47,6 +49,7 @@ export async function recoveryKeypair(
   PBKDF: string,
   username: string
 ) {
+  dotenv.config();
   const clientSideContract = process.env.CLIENT_SIDE_CONTRACT
     ? process.env.CLIENT_SIDE_CONTRACT
     : DEFAULT_CLIENT_SIDE_CONTRACT;

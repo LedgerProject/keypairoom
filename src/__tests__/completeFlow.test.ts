@@ -1,5 +1,9 @@
 import { createPBKDF } from "../serverSide";
-import { getSafetyQuestions, recoveryKeypair, verifyAnswers } from "../clientSide";
+import {
+  getSafetyQuestions,
+  recoveryKeypair,
+  verifyAnswers,
+} from "../clientSide";
 /*
   Here we will test a complete flow
   1. We will create on serverside a PBKDF for a specific user
@@ -11,7 +15,6 @@ import { getSafetyQuestions, recoveryKeypair, verifyAnswers } from "../clientSid
 */
 
 test("completeFlow", async () => {
-  
   //1. We will create on serverside a PBKDF for a specific user
   const userData = {
     email: "john@doe.com",
@@ -26,12 +29,12 @@ test("completeFlow", async () => {
   const PBKDF = data.key_derivation;
 
   //2. We will ask for questions in user locale (it_IT)
-  expect(getSafetyQuestions("it_IT")).toStrictEqual({
-    question1: "Dove si sono incontrati i tuoi genitori?",
-    question2: "Quale è il nome del tuo primo animale domestico?",
-    question3: "Quale è la tua citta' natale??",
-    question4: "Quale è il nome del tuo primo insegnante?",
-    question5: "Quale è il cognome di tua madre prima del matrimonio?",
+  expect(getSafetyQuestions("en_GB")).toStrictEqual({
+    question1: "Where my parents met?",
+    question2: "What is the name of your first pet?",
+    question3: "What is your home town?",
+    question4: "What is the name of your first teacher?",
+    question5: "What is the surname of your mother before wedding?",
   });
 
   const answers = {
@@ -74,7 +77,12 @@ test("completeFlow", async () => {
     question5: "Gervasoni",
   };
 
-  const allAnswersData = await verifyAnswers(allAnswers, PBKDF, username, publicKey);
+  const allAnswersData = await verifyAnswers(
+    allAnswers,
+    PBKDF,
+    username,
+    publicKey
+  );
 
   expect(allAnswersData).toStrictEqual(true);
 
@@ -87,8 +95,12 @@ test("completeFlow", async () => {
     question5: "Gervasoni",
   };
 
-  const allAnswersOneWrongData = await verifyAnswers(allAnswersOneWrong, PBKDF, username, publicKey);
+  const allAnswersOneWrongData = await verifyAnswers(
+    allAnswersOneWrong,
+    PBKDF,
+    username,
+    publicKey
+  );
 
   expect(allAnswersOneWrongData).toStrictEqual(false);
-
 });

@@ -1,7 +1,8 @@
 import { zencode_exec } from "zenroom";
 import { readStringFromFile } from "./service/fileService";
 import * as dotenv from "dotenv";
-const DEFAULT_SERVER_SIDE_CONTRACT = "zencode/Keypair-Creation-Server-Side.zen";
+const DEFAULT_SERVER_SIDE_CONTRACT =
+  "./node_modules/keypair-lib/lib/zencode/Keypair-Creation-Server-Side.zen";
 
 export async function createPBKDF(userData: any) {
   dotenv.config();
