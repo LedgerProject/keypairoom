@@ -1,4 +1,5 @@
 {
+  "bail": 10,
   "transform": {
     "^.+\\.(t|j)sx?$": "ts-jest"
   },

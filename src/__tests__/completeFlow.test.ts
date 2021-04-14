@@ -5,10 +5,8 @@ import { getSafetyQuestions, recoveryKeypair, verifyAnswers } from "../clientSid
   1. We will create on serverside a PBKDF for a specific user
   2. We will ask for questions in user locale (it_IT)
   3. We will create a keyPair first time
-  4. We will verify that answering to 3/5 questions and 2/5 null we obtain same public key
-  5. We will verify that answering to 4/5 questions and 1/5 null we obtain same public key
-  6. We will verify that answering to 5/5 questions we obtain same public key
-  6. We will verify that answering to 5/5 questions we don't obtain same public key
+  4. We will verify that answering to 5/5 questions we obtain same public key
+  5. We will verify that answering to 5/5 questions we don't obtain same public key
 
 */
 
@@ -66,46 +64,6 @@ test("completeFlow", async () => {
     },
   });
   const publicKey = createdKeypair.user.keypair.public_key;
-
-  //4. We will verify that answering to 3/5 questions and 2/5 null we obtain same public key
-   
-  const onlyThreeAnswers = {
-    question1: "Parigi",
-    question2: "ScoobyDoo",
-    question3: "Amsterdam",
-    question4: "null",
-    question5: "null",
-  };
-
-  const verifyThreeAnswersData = await verifyAnswers(onlyThreeAnswers, PBKDF, username, publicKey);
-
-  expect(verifyThreeAnswersData).toStrictEqual(true);
-
-  const onlyAnotherThreeAnswers = {
-    question1: "null",
-    question2: "ScoobyDoo",
-    question3: "Amsterdam",
-    question4: "Mrs Doubtfire",
-    question5: "null",
-  }; 
-
-  const verifyOnlyAnotherThreeAnswersData = await verifyAnswers(onlyAnotherThreeAnswers, PBKDF, username, publicKey);
-
-  expect(verifyOnlyAnotherThreeAnswersData).toStrictEqual(true);
-
- 
-  //5. We will verify that answering to 4/5 questions and 1/5 null we obtain same public key
-  const onlyFourAnswers = {
-    question1: "Parigi",
-    question2: "ScoobyDoo",
-    question3: "Amsterdam",
-    question4: "Mrs Doubtfire",
-    question5: "null",
-  };
-
-  const verifyFourAnswersData = await verifyAnswers(onlyFourAnswers, PBKDF, username, publicKey);
-
-  expect(verifyFourAnswersData).toStrictEqual(true); */
 
   //5. We will verify that answering to 5/5 questions we obtain same public key
   const allAnswers = {
