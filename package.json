@@ -25,7 +25,7 @@
     "zencode"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
     "zenroom": "^2.2.0-e4ecf22"
