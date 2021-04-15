@@ -2,7 +2,6 @@ rule check version 1.0.0
 Scenario 'ecdh': create the signature of an object
 
 
-# Loading the data that the user is entering at the signup. This data will be sent from the client to the server
 Given I have a 'base64 dictionary' named 'old_keypair'
 Given I have a 'base64 dictionary' named 'keypair'
 Given I have a 'base64' named 'old_private_key' inside 'old_keypair'
@@ -14,6 +13,5 @@ Given I have a 'base64' named 'public_key' inside 'keypair'
 When I verify 'old_private_key' is equal to 'private_key'
 And I verify 'old_public_key' is equal to 'public_key'
 
-# Here we print the PBKDF
 Then print 'keypair successfully regenerated'
 
