@@ -1,5 +1,5 @@
 {
-  "name": "keypair_lib",
+  "name": "keypairoom",
   "version": "1.0.0",
   "description": "Keypair library",
   "main": "lib/index.js",
