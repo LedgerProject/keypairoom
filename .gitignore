@@ -1,3 +1,6 @@
+client_input.data
+key_derivation.keys
+recreated_keypair.keys
 node_modules
 lib
 .env

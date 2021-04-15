@@ -1,0 +1,21 @@
+rule check version 1.0.0
+Scenario 'ecdh': create keypair from data
+
+Given I have a 'base64 dictionary' named 'hashedAnswers'
+
+# Loading the pbkdf received from the server, containing a signed hash of known data
+Given that I have a 'string' named 'key_derivation'  
+
+# Hashing the user's challenges and renaming it
+When I create the hash of 'hashedAnswers'
+and I rename the 'hash' to 'hashedAnswers.hash'
+
+# appending the user challenges' hash to the pbkdf, hashing the result and renaming it 
+When I append 'hashedAnswers.hash' to 'key_derivation'
+When I create the hash of 'key_derivation'
+and I rename the 'hash' to 'concatenatedHashes'
+
+# Creating the keypair from the hash just created
+When I create the keypair with secret key 'concatenatedHashes'
+
+Then print the 'keypair'
