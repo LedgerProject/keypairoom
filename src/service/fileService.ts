@@ -1,20 +1,13 @@
 import * as fs from "fs";
 
-export const fileExists = (filePath: string) => {
+export const readJSONFromFile = (filePath: string, defaultFilePath:string) => {
+  return JSON.parse(readStringFromFile(filePath, defaultFilePath));
+};
+
+export const readStringFromFile = (filePath: string, defaultFilePath:string) => {
   try {
-    if (fs.existsSync(filePath)) {
-      return true;
-    }
+    return fs.readFileSync(filePath).toString();
   } catch (err) {
-    console.error(err);
+    return fs.readFileSync(defaultFilePath).toString();
   }
-  return false;
-};
-
-export const readJSONFromFile = (filePath: string) => {
-  return JSON.parse(readStringFromFile(filePath));
-};
-
-export const readStringFromFile = (filePath: string) => {
-  return fs.readFileSync(filePath).toString();
 };

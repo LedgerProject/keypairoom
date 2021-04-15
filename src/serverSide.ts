@@ -5,10 +5,7 @@ const DEFAULT_SERVER_SIDE_CONTRACT =__dirname+"/zencode/Keypair-Creation-Server-
 
 export async function createPBKDF(userData: any) {
   dotenv.config();
-  const serverSideContract = process.env.SERVER_SIDE_CONTRACT
-    ? process.env.SERVER_SIDE_CONTRACT
-    : DEFAULT_SERVER_SIDE_CONTRACT;
-  const SERVER_SIDE_CONTRACT = readStringFromFile(serverSideContract);
+  const SERVER_SIDE_CONTRACT = readStringFromFile(process.env.SERVER_SIDE_CONTRACT!, DEFAULT_SERVER_SIDE_CONTRACT);
 
   const keys: any = {
     theBackend: {
