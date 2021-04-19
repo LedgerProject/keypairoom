@@ -1,5 +1,5 @@
 {
-  "name": "keypairoom",
+  "name": "@dyne/keypairoom",
   "version": "1.0.0",
   "description": "Keypair library",
   "main": "lib/index.js",
@@ -8,10 +8,6 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
     "build": "npm run clean && tsc && npm run copy-files",
     "clean": "rm -rf ./lib",
     "copy-files": "cp -r ./src/zencode/ ./lib/zencode && cp -r ./src/props/ ./lib/props"
@@ -31,6 +27,8 @@
     "zenroom": "^2.2.0-e4ecf22"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@types/jest": "^26.0.22",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
@@ -41,5 +39,31 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ],
+  "release": {
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json",
+          "yarn.lock",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): 🚀 ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
