@@ -1,0 +1,29 @@
+rule check version 1.0.0
+Scenario 'ecdh': create the signature of an object
+
+# Loading the data that the user is entering at the signup. This data will be sent from the client to the server
+Given I have a 'base64 dictionary' named 'hashedQandA'
+Given I have a 'base64 dictionary' named 'storedQandA'
+Given I have a 'base64' named 'Question1.stored' inside 'storedQandA'
+Given I have a 'base64' named 'Question1.hash' inside 'hashedQandA' 
+Given I have a 'base64' named 'Question2.stored' inside 'storedQandA'
+Given I have a 'base64' named 'Question2.hash' inside 'hashedQandA' 
+Given I have a 'base64' named 'Question3.stored' inside 'storedQandA'
+Given I have a 'base64' named 'Question3.hash' inside 'hashedQandA' 
+
+Given I have a 'base64' named 'Answer1.stored' inside 'storedQandA'
+Given I have a 'base64' named 'Answer1.hash' inside 'hashedQandA' 
+Given I have a 'base64' named 'Answer2.stored' inside 'storedQandA'
+Given I have a 'base64' named 'Answer2.hash' inside 'hashedQandA' 
+Given I have a 'base64' named 'Answer3.stored' inside 'storedQandA'
+Given I have a 'base64' named 'Answer3.hash' inside 'hashedQandA' 
+
+When I verify 'Question1.stored' is equal to 'Question1.hash'
+When I verify 'Question2.stored' is equal to 'Question2.hash'
+When I verify 'Question3.stored' is equal to 'Question3.hash'
+When I verify 'Answer1.stored' is equal to 'Answer1.hash'
+When I verify 'Answer2.stored' is equal to 'Answer2.hash'
+When I verify 'Answer3.stored' is equal to 'Answer3.hash'
+
+Then print the string 'Questions and Answers match'
+

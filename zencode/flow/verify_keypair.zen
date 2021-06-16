@@ -13,5 +13,5 @@ Given I have a 'base64' named 'public_key' inside 'keypair'
 When I verify 'old_private_key' is equal to 'private_key'
 And I verify 'old_public_key' is equal to 'public_key'
 
-Then print 'keypair successfully regenerated'
+Then print the string 'keypair successfully regenerated'
 

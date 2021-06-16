@@ -1,58 +1,30 @@
 rule check version 1.0.0
 Scenario 'ecdh': create hashes of questions and answers
-
-# Loading the answers from the secret questions. The user will have to pick the challenges from a list 
-# and have to remember the questions - the order is not important cause Zenroom will sort alphabetically 
-# the data in input
-#
-# NOTE: the challenges will never be communicated to the server or to anybody else!
-Given I have a 'string dictionary' named 'userChallenges'
-
-# Loading the individual challenges, in order to have them hashed 
-# and the hashes OPTIONALLY stored by the server, to improve regeneration of the keypair
-Given I have a 'string' named 'Question1' in 'userChallenges'
-Given I have a 'string' named 'Answer1' in 'userChallenges'
-Given I have a 'string' named 'Question2' in 'userChallenges'
-Given I have a 'string' named 'Answer2' in 'userChallenges'
-Given I have a 'string' named 'Question3' in 'userChallenges'
-Given I have a 'string' named 'Answer3' in 'userChallenges'
-
-
-# Hashing the user's challenges and renaming it
-When I create the hash of 'userChallenges'
-and I rename the 'hash' to 'userChallenges.hash'
-
+Given I have a 'string dictionary' named 'QandA'
+Given I have a 'string' named 'Question1' in 'QandA'
+Given I have a 'string' named 'Answer1' in 'QandA'
+Given I have a 'string' named 'Question2' in 'QandA'
+Given I have a 'string' named 'Answer2' in 'QandA'
+Given I have a 'string' named 'Question3' in 'QandA'
+Given I have a 'string' named 'Answer3' in 'QandA'
 When I create the 'base64 dictionary'
-and I rename the 'base64 dictionary' to 'hashedAnswers'
-
-
-# Creating the hashes of the single challenges, to OPTIONALLY help 
-# regeneration of the keypair
-
+and I rename the 'base64 dictionary' to 'hashedQandA'
 When I create the hash of 'Question1'
 and I rename the 'hash' to 'Question1.hash'
-When I insert 'Question1.hash' in 'hashedAnswers'
-
+When I insert 'Question1.hash' in 'hashedQandA'
 When I create the hash of 'Question2'
 and I rename the 'hash' to 'Question2.hash'
-When I insert 'Question2.hash' in 'hashedAnswers'
-
+When I insert 'Question2.hash' in 'hashedQandA'
 When I create the hash of 'Question3'
 and I rename the 'hash' to 'Question3.hash'
-When I insert 'Question3.hash' in 'hashedAnswers'
-
+When I insert 'Question3.hash' in 'hashedQandA'
 When I create the hash of 'Answer1'
 and I rename the 'hash' to 'Answer1.hash'
-When I insert 'Answer1.hash' in 'hashedAnswers'
-
+When I insert 'Answer1.hash' in 'hashedQandA'
 When I create the hash of 'Answer2'
 and I rename the 'hash' to 'Answer2.hash'
-When I insert 'Answer2.hash' in 'hashedAnswers'
-
+When I insert 'Answer2.hash' in 'hashedQandA'
 When I create the hash of 'Answer3'
 and I rename the 'hash' to 'Answer3.hash'
-When I insert 'Answer3.hash' in 'hashedAnswers'
-
-# Comment the line below, if you don't want to output the hashes of the challenges
-Then print 'hashedAnswers'
-
+When I insert 'Answer3.hash' in 'hashedQandA'
+Then print the 'hashedQandA'

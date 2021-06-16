@@ -1,12 +1,5 @@
 {
-   "theBackend":{
-      "keypair":{
-         "private_key":"Aku7vkJ7K01gQehKELav3qaQfTeTMZKgK+5VhaR3Ui0=",
-         "public_key":"BBCQg21VcjsmfTmNsg+I+8m1Cm0neaYONTqRnXUjsJLPa8075IYH+a9w2wRO7rFM1cKmv19Igd7ntDZcUvLq3xI="
-      }
-   },
-   "theBackendPassword":"myVerySecretPassword",
-   "userData":{
+   "storedQandA":{
       "Answer1.stored": "XdJytPMWt3anuOPQiUs34eQr49XTsgS4pYNsxQWXprE=",
       "Answer2.stored": "2hauYmg/8TGnG5IeCTzlFKHvw1XpxbKaMdmEUbUNQ2c=",
       "Answer3.stored": "ABPAH+DQlCCbi9PSO4+W26vNAd3SoDnuuoLRiRrPDWE=",

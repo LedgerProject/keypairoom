@@ -1,0 +1,7 @@
+rule check version 1.0.0
+Scenario 'ecdh': create the seed for credentials
+Given I have a 'keypair' from 'GeneCoop'
+Given I have a 'string' named 'GeneCoopPassword'
+Given I have a 'string dictionary' named 'hashedQandA'
+When I create the key derivation of 'hashedQandA' with password 'GeneCoopPassword'
+Then print the 'key_derivation'
